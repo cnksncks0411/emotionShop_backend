@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com:6543/postgres
+    username: postgres.okytvmtcyzilgmnsdtms
+    password: aqwsaqws1332!
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+jwt:
+  secret: localDevSecretKey123456789012345678901234567890
+  access-token-expiration: 3600000
+  refresh-token-expiration: 604800000
+
+logging:
+  level:
+    com.emotionshop: INFO
