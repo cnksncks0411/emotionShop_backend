@@ -1,7 +1,8 @@
 package com.app.emotion_market.repository;
 
 import com.app.emotion_market.entity.User;
-import com.app.emotion_market.entity.UserStatus;
+import com.app.emotion_market.enums.UserStatus;
+import com.app.emotion_market.repository.custom.UserRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

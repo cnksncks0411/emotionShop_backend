@@ -1,5 +1,6 @@
 package com.app.emotion_market.entity;
 
+import com.app.emotion_market.enumType.EmotionType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -105,5 +106,17 @@ public class SystemEmotion {
 
     public boolean isAvailable() {
         return this.isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public double getAverageRating() {
+        return this.averageRating != null ? this.averageRating.doubleValue() : 0.0;
     }
 }

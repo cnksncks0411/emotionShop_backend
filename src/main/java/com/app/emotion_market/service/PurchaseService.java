@@ -1,11 +1,11 @@
 package com.app.emotion_market.service;
 
-import com.emotionshop.entity_market.entity.Purchase;
-import com.emotionshop.entity_market.entity.SystemEmotion;
-import com.emotionshop.entity_market.entity.User;
-import com.emotionshop.entity_market.repository.PurchaseRepository;
-import com.emotionshop.entity_market.repository.SystemEmotionRepository;
-import com.emotionshop.entity_market.repository.UserRepository;
+import com.app.emotion_market.entity.Purchase;
+import com.app.emotion_market.entity.SystemEmotion;
+import com.app.emotion_market.entity.User;
+import com.app.emotion_market.repository.PurchaseRepository;
+import com.app.emotion_market.repository.SystemEmotionRepository;
+import com.app.emotion_market.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

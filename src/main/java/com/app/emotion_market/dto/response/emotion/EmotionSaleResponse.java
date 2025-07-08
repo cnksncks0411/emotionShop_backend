@@ -1,6 +1,6 @@
 package com.app.emotion_market.dto.response.emotion;
 
-import com.emotionshop.entity_market.common.enums.EmotionType;
+import com.app.emotion_market.enumType.EmotionType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

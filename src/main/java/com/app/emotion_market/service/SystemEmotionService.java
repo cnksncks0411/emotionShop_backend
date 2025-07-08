@@ -1,8 +1,8 @@
 package com.app.emotion_market.service;
 
-import com.emotionshop.entity_market.common.enums.EmotionType;
-import com.emotionshop.entity_market.entity.SystemEmotion;
-import com.emotionshop.entity_market.repository.SystemEmotionRepository;
+import com.app.emotion_market.enumType.EmotionType;
+import com.app.emotion_market.entity.SystemEmotion;
+import com.app.emotion_market.repository.SystemEmotionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -35,7 +35,7 @@ public class SystemEmotionService {
      * 카테고리별 감정 상품 조회 (페이징)
      */
     public Page<SystemEmotion> findEmotionsByCategory(Long categoryId, Pageable pageable) {
-        return systemEmotionRepository.findByCategoryIdAndIsActiveTrueOrderByTotalPurchasesDesc(categoryId, pageable);
+        return systemEmotionRepository.findByCategoryIdAndIsActiveTrueOrderByTotalPurchasesDesc(categoryId.intValue(), pageable);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.app.emotion_market.entity;
 
+import com.app.emotion_market.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -62,20 +63,26 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Builder
-    public User(String email, String password, String nickname, String mbtiType, 
-                String profileImage, Boolean agreeTerms, Boolean agreePrivacy, 
-                Boolean agreeMarketing) {
+    public User(String email, String password, String nickname, Integer points,
+                String mbtiType, String profileImage, String status,
+                Boolean agreeTerms, Boolean agreePrivacy, Boolean agreeMarketing) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
+        this.points = points != null ? points : 100;
         this.mbtiType = mbtiType;
         this.profileImage = profileImage;
+        this.status = status != null ? UserStatus.valueOf(status) : UserStatus.ACTIVE;
         this.agreeTerms = agreeTerms;
         this.agreePrivacy = agreePrivacy;
         this.agreeMarketing = agreeMarketing;
     }
 
     // 비즈니스 메서드
+    public void updateLastLoginAt(LocalDateTime loginTime) {
+        this.lastLoginAt = loginTime;
+    }
+
     public void updateLastLogin() {
         this.lastLoginAt = LocalDateTime.now();
     }

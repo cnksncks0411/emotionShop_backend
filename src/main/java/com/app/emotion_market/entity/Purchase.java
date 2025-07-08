@@ -1,5 +1,6 @@
 package com.app.emotion_market.entity;
 
+import com.app.emotion_market.enums.PurchaseStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

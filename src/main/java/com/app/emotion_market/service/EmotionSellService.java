@@ -1,6 +1,9 @@
 package com.app.emotion_market.service;
 
 import com.app.emotion_market.entity.*;
+import com.app.emotion_market.enumType.EmotionType;
+import com.app.emotion_market.enumType.LocationType;
+import com.app.emotion_market.enumType.ReviewStatus;
 import com.app.emotion_market.repository.UserEmotionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,9 +32,9 @@ public class EmotionSellService {
     private static final int DETAILED_STORY_MIN_LENGTH = 100;
 
     @Transactional
-    public UserEmotion sellEmotion(Long userId, EmotionType emotionType, Integer intensity, 
-                                  String story, LocationType location, String[] tags,
-                                  boolean allowResale, boolean allowCreativeUse) {
+    public UserEmotion sellEmotion(Long userId, EmotionType emotionType, Integer intensity,
+                                   String story, LocationType location, String[] tags,
+                                   boolean allowResale, boolean allowCreativeUse) {
         
         // 사용자 조회
         User user = userService.findById(userId)

@@ -1,6 +1,8 @@
 package com.app.emotion_market.service;
 
 import com.app.emotion_market.entity.*;
+import com.app.emotion_market.enumType.RelatedType;
+import com.app.emotion_market.enumType.TransactionType;
 import com.app.emotion_market.repository.PointTransactionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -150,5 +152,44 @@ public class PointTransactionService {
 
     public Integer sumAmountByTypeInPeriod(TransactionType type, LocalDateTime startDate, LocalDateTime endDate) {
         return pointTransactionRepository.sumAmountByTypeInPeriod(type, startDate, endDate);
+    }
+
+    // PointController에서 필요한 메서드들 추가
+    public Integer getTotalEarnedPoints(Long userId) {
+        return pointTransactionRepository.getTotalEarnedByUser(userId);
+    }
+
+    public Integer getTotalSpentPoints(Long userId) {
+        return pointTransactionRepository.getTotalSpentByUser(userId);
+    }
+
+    public Page<PointTransaction> findUserTransactions(Long userId, RelatedType type, 
+                                                      LocalDateTime startDate, LocalDateTime endDate, 
+                                                      Pageable pageable) {
+        return pointTransactionRepository.findTransactionsWithFilters(userId, null, type, startDate, endDate, pageable);
+    }
+
+    public Integer getTotalEarnedPointsByPeriod(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return pointTransactionRepository.getTotalEarnedByUserInPeriod(userId, startDate, endDate);
+    }
+
+    public Integer getTotalSpentPointsByPeriod(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return pointTransactionRepository.getTotalSpentByUserInPeriod(userId, startDate, endDate);
+    }
+
+    public Long getTransactionCountByPeriod(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return pointTransactionRepository.getTransactionCountByUserInPeriod(userId, startDate, endDate);
+    }
+
+    public List<PointTransaction> findRecentTransactions(Long userId, int limit) {
+        return pointTransactionRepository.findRecentTransactionsByUserId(userId, limit);
+    }
+
+    public java.util.Map<String, Integer> getEarningsByTransactionType(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return pointTransactionRepository.getEarningsByTransactionType(userId, startDate, endDate);
+    }
+
+    public java.util.Map<String, Integer> getSpendingByTransactionType(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return pointTransactionRepository.getSpendingByTransactionType(userId, startDate, endDate);
     }
 }

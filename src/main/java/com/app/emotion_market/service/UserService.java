@@ -1,7 +1,7 @@
 package com.app.emotion_market.service;
 
 import com.app.emotion_market.entity.User;
-import com.app.emotion_market.entity.UserStatus;
+import com.app.emotion_market.enumType.UserStatus;
 import com.app.emotion_market.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

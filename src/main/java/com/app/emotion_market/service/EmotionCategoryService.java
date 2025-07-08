@@ -1,8 +1,8 @@
 package com.app.emotion_market.service;
 
-import com.emotionshop.entity_market.entity.EmotionCategory;
-import com.emotionshop.entity_market.repository.EmotionCategoryRepository;
-import com.emotionshop.entity_market.repository.SystemEmotionRepository;
+import com.app.emotion_market.entity.EmotionCategory;
+import com.app.emotion_market.repository.EmotionCategoryRepository;
+import com.app.emotion_market.repository.SystemEmotionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -41,21 +41,21 @@ public class EmotionCategoryService {
      * 카테고리별 감정 상품 개수 조회
      */
     public Long countEmotionsByCategory(Long categoryId) {
-        return systemEmotionRepository.countByCategoryIdAndIsActiveTrue(categoryId);
+        return systemEmotionRepository.countByCategoryIdAndIsActiveTrue(categoryId.intValue());
     }
 
     /**
      * 카테고리별 평균 가격 조회
      */
     public Double getAveragePriceByCategory(Long categoryId) {
-        return systemEmotionRepository.getAveragePriceByCategoryId(categoryId);
+        return systemEmotionRepository.getAveragePriceByCategoryId(categoryId.intValue());
     }
 
     /**
      * 카테고리별 인기도 조회 (총 구매수 기준)
      */
     public Long getTotalPurchasesByCategory(Long categoryId) {
-        return systemEmotionRepository.getTotalPurchasesByCategoryId(categoryId);
+        return systemEmotionRepository.getTotalPurchasesByCategoryId(categoryId.intValue());
     }
 
     /**

@@ -1,5 +1,7 @@
 package com.app.emotion_market.entity;
 
+import com.app.emotion_market.enums.RelatedType;
+import com.app.emotion_market.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
